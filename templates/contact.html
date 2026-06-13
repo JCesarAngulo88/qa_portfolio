@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="content-panel contact-panel">
+  <header class="section-header">
+    <h2>Contact & Recruiter Info</h2>
+    <p>Send a message and I will see it in the database for follow-up.</p>
+  </header>
+  <div class="contact-grid">
+    <div class="contact-card form-card">
+      <h3>Send a message</h3>
+      <form action="/contact" method="post" class="contact-form">
+        <label for="full_name">Full Name *</label>
+        <input type="text" id="full_name" name="full_name" required />
+
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" />
+
+        <label for="company">Company (optional)</label>
+        <input type="text" id="company" name="company" />
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" />
+
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+    <div class="contact-card info-card">
+      <h3>Recruiter access</h3>
+      <p>Please use the form to share your hiring details. I review messages daily.</p>
+      <div class="contact-info">
+        <div><strong>Phone</strong><span>{{ contact_info.phone }}</span></div>
+        <div><strong>Email</strong><span>{{ contact_info.email }}</span></div>
+        <div><strong>LinkedIn</strong><a href="{{ contact_info.linkedin }}" target="_blank" rel="noopener">Julio Angulo</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

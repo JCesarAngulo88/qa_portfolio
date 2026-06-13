@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ 'Julio Angulo | QA Engineer' }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </head>
+  <body class="{{ body_class|default('') }}">
+    <header class="site-header">
+      <div class="nav-brand">
+        <a href="/">JULIO ANGULO</a>
+      </div>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/projects">Projects</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      <div class="flash-list">
+        {% for category, message in messages %}
+        <div class="flash flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="page-footer">
+      <p>Built for QA engineering, quality, and modern automation.</p>
+      <p>&copy; 2026 Julio Angulo</p>
+    </footer>
+  </body>
+</html>

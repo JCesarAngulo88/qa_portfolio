@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="content-panel about-panel">
+  <div class="about-grid">
+    <div class="about-copy">
+      <p class="intro-line">👋 Hi there! My name is <strong>Julio Angulo</strong></p>
+      <p class="hero-text">
+        Gamer enthusiast, passionate about technology, musician by hobby, muscle cars lover, and a little bit of everything.
+      </p>
+      <div class="about-highlights">
+        <p><strong>Electronics Engineer | QA Tester</strong></p>
+        <p>Electronics Engineer with over 5 years of experience in QA Testing, with specialized training in software testing for web, backend, and mobile environments. Skilled in designing, executing, and automating functional and API tests, managing defects, and documenting results using tools such as Jira and Git. Known for a strong focus on quality, keen attention to detail, and effective use of agile methodologies.</p>
+        <p><strong>Experienced in:</strong></p>
+        <ul>
+          <li>🔍 Manual Testing and QA Automation</li>
+          <li>🐍 Skilled in Python, SQL, REST API, Selenium</li>
+          <li>🌱 Currently learning JavaScript</li>
+          <li>🧪 Focused on building clean, efficient, and maintainable test solutions</li>
+        </ul>
+      </div>
+    </div>
+    <div class="about-photo-card">
+      <div class="profile-frame">
+        <img src="{{ url_for('static', filename='images/julio.png') }}" alt="Julio Angulo profile illustration" />
+      </div>
+      <div class="photo-caption">Electronics Engineer & QA Automation Expert</div>
+    </div>
+  </div>
+</section>
+{% endblock %}
