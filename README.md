@@ -53,6 +53,24 @@ A retro sci-fi portfolio site for Julio Angulo built with Python, Flask, SQLite,
   - Authenticated
   - Deletes the record
 
+## Continuous Integration
+This repository includes a GitHub Actions workflow that runs the continuous test suite on every push or pull request to the `main` branch.
+
+### What runs in CI
+The workflow executes the pytest tests marked with `cont_test`, including:
+- health checks
+- authentication tests
+- contact API tests
+
+### Local command
+Run the same suite locally with:
+```bash
+./run_continuous_tests.sh
+```
+
+### Workflow file
+The CI configuration is defined in `.github/workflows/continuous-tests.yml`.
+
 ## Notes
 - The SQLite database is created automatically in `instance/portfolio.db`.
 - Replace the placeholder contact info with your real email and phone number.

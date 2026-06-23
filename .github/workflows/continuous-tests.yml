@@ -1,0 +1,37 @@
+name: Continuous Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pytest-cont-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run continuous tests
+        env:
+          FLASK_SECRET_KEY: ci-secret-key
+          API_USERNAME: admin
+          API_PASSWORD: password
+          BASE_URL: http://127.0.0.1:5000
+        run: |
+          chmod +x run_continuous_tests.sh
+          ./run_continuous_tests.sh

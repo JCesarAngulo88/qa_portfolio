@@ -1,0 +1,64 @@
+2026-06-23 17:20:26,424 - conftest - INFO - Logger has been configured.
+2026-06-23 17:20:26,424 - conftest - INFO - Setting API Client
+2026-06-23 17:20:26,424 - test_health - INFO - Starting health check test: verify GET /ping returns 200 and the expected payload.
+2026-06-23 17:20:26,424 - tests.api.api_utils.api_client - DEBUG - Making GET request to http://127.0.0.1:5000/ping
+2026-06-23 17:20:26,428 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:5000
+2026-06-23 17:20:26,429 - urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "GET /ping HTTP/1.1" 200 65
+2026-06-23 17:20:26,429 - test_health - INFO - Received response from GET /ping: 200
+2026-06-23 17:20:26,429 - test_health - INFO - Assertion passed: status code is 200
+2026-06-23 17:20:26,429 - test_health - INFO - Passed. Actual payload: {'message': 'Portfolio API is available.', 'status': 'ok'}.Expected payload: {'status': 'ok', 'message': 'Portfolio API is available.'}
+2026-06-23 17:20:26,429 - test_auth - INFO - Starting auth test: verify valid credentials return access and refresh tokens from /login.
+2026-06-23 17:20:26,430 - urllib3.connectionpool - DEBUG - Resetting dropped connection: 127.0.0.1
+2026-06-23 17:20:26,482 - urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "POST /login HTTP/1.1" 200 220
+2026-06-23 17:20:26,483 - test_auth - INFO - Login response status: 200
+2026-06-23 17:20:26,483 - test_auth - INFO - Login response body: {'access_token': 'eyJ1c2VybmFtZSI6ImFkbWluIn0.ajsUug.BvgsvnTqAs2b3tzIWLNwVGZNPTg', 'expires_in': 3600, 'refresh_token': 'eyJ1c2VybmFtZSI6ImFkbWluIn0.ajsUug.TC878yAhMvdWSDOiYjXllB-gJ-E', 'token_type': 'Bearer'}
+2026-06-23 17:20:26,483 - test_auth - INFO - Assertion passed: login returns 200.
+2026-06-23 17:20:26,483 - test_auth - INFO - Assertion passed: token_type is Bearer.
+2026-06-23 17:20:26,483 - test_auth - INFO - Assertion passed: expires_in is positive.
+2026-06-23 17:20:26,483 - test_auth - INFO - Assertion passed: access_token is a string.
+2026-06-23 17:20:26,483 - test_auth - INFO - Assertion passed: refresh_token is a string.
+2026-06-23 17:20:26,483 - test_auth - INFO - Starting auth failure test: verify invalid credentials return 401 for username=admin.
+2026-06-23 17:20:26,484 - urllib3.connectionpool - DEBUG - Resetting dropped connection: 127.0.0.1
+2026-06-23 17:20:26,533 - urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "POST /login HTTP/1.1" 401 38
+2026-06-23 17:20:26,533 - test_auth - INFO - Login failure response status: 401, body: {'error': 'Invalid credentials.'}
+2026-06-23 17:20:26,533 - test_auth - INFO - Assertion passed: login returns 401.
+2026-06-23 17:20:26,533 - test_auth - INFO - Assertion passed: error message is 'Invalid credentials.'.
+2026-06-23 17:20:26,534 - test_auth - INFO - Starting auth failure test: verify invalid credentials return 401 for username=wrong-user.
+2026-06-23 17:20:26,534 - urllib3.connectionpool - DEBUG - Resetting dropped connection: 127.0.0.1
+2026-06-23 17:20:26,535 - urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "POST /login HTTP/1.1" 401 38
+2026-06-23 17:20:26,535 - test_auth - INFO - Login failure response status: 401, body: {'error': 'Invalid credentials.'}
+2026-06-23 17:20:26,535 - test_auth - INFO - Assertion passed: login returns 401.
+2026-06-23 17:20:26,535 - test_auth - INFO - Assertion passed: error message is 'Invalid credentials.'.
+2026-06-23 17:20:26,536 - test_auth - INFO - Starting auth failure test: verify invalid credentials return 401 for username=.
+2026-06-23 17:20:26,536 - urllib3.connectionpool - DEBUG - Resetting dropped connection: 127.0.0.1
+2026-06-23 17:20:26,537 - urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "POST /login HTTP/1.1" 401 38
+2026-06-23 17:20:26,537 - test_auth - INFO - Login failure response status: 401, body: {'error': 'Invalid credentials.'}
+2026-06-23 17:20:26,537 - test_auth - INFO - Assertion passed: login returns 401.
+2026-06-23 17:20:26,537 - test_auth - INFO - Assertion passed: error message is 'Invalid credentials.'.
+2026-06-23 17:20:26,537 - conftest - INFO - Setting Authenticated Client
+2026-06-23 17:20:26,537 - tests.api.api_utils.api_client - INFO - Initiating login request to http://127.0.0.1:5000/login for user: admin
+2026-06-23 17:20:26,538 - urllib3.connectionpool - DEBUG - Resetting dropped connection: 127.0.0.1
+2026-06-23 17:20:26,588 - urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "POST /login HTTP/1.1" 200 220
+2026-06-23 17:20:26,588 - tests.api.api_utils.api_client - INFO - 
+Token Created: eyJ1c2VybmFtZSI6ImFkbWluIn0.ajsUug.BvgsvnTqAs2b3tzIWLNwVGZNPTg
+
+2026-06-23 17:20:26,588 - tests.api.api_utils.api_client - INFO - Header with Token: {'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJ1c2VybmFtZSI6ImFkbWluIn0.ajsUug.BvgsvnTqAs2b3tzIWLNwVGZNPTg'}
+2026-06-23 17:20:26,588 - tests.api.api_utils.api_client - INFO - Login successful.
+2026-06-23 17:20:26,589 - test_contacts - INFO - Starting contact creation test: verify a valid payload creates a new contact.
+2026-06-23 17:20:26,589 - urllib3.connectionpool - DEBUG - Resetting dropped connection: 127.0.0.1
+2026-06-23 17:20:26,591 - urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "POST /contacts HTTP/1.1" 201 275
+2026-06-23 17:20:26,591 - test_contacts - INFO - Create contact response status: 201, body: {'contact': {'company': 'QA Labs', 'created_at': '2026-06-23 23:20:26', 'email': 'jane.doe@example.com', 'full_name': 'Jane Doe', 'id': 7, 'message': 'Hello from the API test suite.', 'phone': '555-0101', 'subject': 'Pytest contact'}}
+2026-06-23 17:20:26,591 - test_contacts - INFO - Assertion passed: creation returns 201.
+2026-06-23 17:20:26,592 - conftest - INFO - Setting Authenticated Client
+2026-06-23 17:20:26,592 - tests.api.api_utils.api_client - INFO - Initiating login request to http://127.0.0.1:5000/login for user: admin
+2026-06-23 17:20:26,592 - urllib3.connectionpool - DEBUG - Resetting dropped connection: 127.0.0.1
+2026-06-23 17:20:26,642 - urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "POST /login HTTP/1.1" 200 220
+2026-06-23 17:20:26,642 - tests.api.api_utils.api_client - INFO - 
+Token Created: eyJ1c2VybmFtZSI6ImFkbWluIn0.ajsUug.BvgsvnTqAs2b3tzIWLNwVGZNPTg
+
+2026-06-23 17:20:26,642 - tests.api.api_utils.api_client - INFO - Header with Token: {'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJ1c2VybmFtZSI6ImFkbWluIn0.ajsUug.BvgsvnTqAs2b3tzIWLNwVGZNPTg'}
+2026-06-23 17:20:26,642 - tests.api.api_utils.api_client - INFO - Login successful.
+2026-06-23 17:20:26,642 - test_contacts - INFO - Test Case Get All contacts registered
+2026-06-23 17:20:26,642 - tests.api.api_utils.api_client - DEBUG - Making GET request to http://127.0.0.1:5000/contacts
+2026-06-23 17:20:26,643 - urllib3.connectionpool - DEBUG - Resetting dropped connection: 127.0.0.1
+2026-06-23 17:20:26,644 - urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "GET /contacts HTTP/1.1" 200 1735

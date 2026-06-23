@@ -4,6 +4,7 @@ instance/
 .env
 venv/
 .DS_Store
+.venv/
 
 inter_hits.md
 
