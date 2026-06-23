@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 class TestContactsEndpoints:
 
     @pytest.mark.debug
-    @pytest.mark.cont_test
+    #@pytest.mark.cont_test
     def test_create_contact_with_valid_payload(self, authenticated_client):
 
         logger.info("Starting contact creation test: verify a valid payload creates a new contact.")
@@ -37,7 +37,7 @@ class TestContactsEndpoints:
         assert body["contact"]["message"] == payload["message"]
 
     @pytest.mark.debug
-    @pytest.mark.cont_test
+    #@pytest.mark.cont_test
     def test_read_all_registers(self, authenticated_client):
         logger.info(f"Test Case Get All contacts registered")
 

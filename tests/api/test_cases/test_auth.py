@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 class TestAuthEndpoints:
 
     @pytest.mark.debug
-    @pytest.mark.cont_test
+    #@pytest.mark.cont_test
     def test_login_with_valid_credentials_returns_tokens(self, api_client):
         logger.info(
             f"Starting auth test: verify valid credentials return access and refresh tokens from {EndPoints.LOGIN}."
