@@ -1,4 +1,6 @@
 name: Continuous Tests
+run: |
+    echo "API_USERNAME is set: ${{ secrets.USERNAME != '' }}"
 
 on:
   push:
