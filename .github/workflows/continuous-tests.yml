@@ -28,14 +28,14 @@ jobs:
 
       - name: Debug env vars
         run: |
-          echo "USERNAME is set: ${{ secrets.USERNAME != '' }}"
-          echo "PASSWORD is set: ${{ secrets.PASSWORD != '' }}"
+          echo "USERNAME is set: ${{ secrets.API.USERNAME != '' }}"
+          echo "PASSWORD is set: ${{ secrets.API.PASSWORD != '' }}"
 
       - name: Run continuous tests
         env:
           FLASK_SECRET_KEY: ci-secret-key
-          USERNAME: ${{ secrets.USERNAME }}
-          PASSWORD: ${{ secrets.PASSWORD }}
+          USERNAME: ${{ secrets.API.USERNAME }}
+          PASSWORD: ${{ secrets.API.PASSWORD }}
           BASE_URL: http://127.0.0.1:5000
         run: |
           chmod +x run_continuous_tests.sh
