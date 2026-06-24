@@ -1,6 +1,4 @@
 name: Continuous Tests
-run: |
-    echo "API_USERNAME is set: ${{ secrets.USERNAME != '' }}"
 
 on:
   push:
@@ -27,6 +25,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: Debug env vars
+        run: |
+          echo "USERNAME is set: ${{ secrets.USERNAME != '' }}"
+          echo "PASSWORD is set: ${{ secrets.PASSWORD != '' }}"
 
       - name: Run continuous tests
         env:
