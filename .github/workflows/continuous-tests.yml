@@ -29,8 +29,8 @@ jobs:
       - name: Run continuous tests
         env:
           FLASK_SECRET_KEY: ci-secret-key
-          API_USERNAME: admin
-          API_PASSWORD: password
+          API_USERNAME: ${{ secrets.API.USERNAME }}
+          API_PASSWORD: ${{ secrets.API.PASSWORD }}
           BASE_URL: http://127.0.0.1:5000
         run: |
           chmod +x run_continuous_tests.sh
