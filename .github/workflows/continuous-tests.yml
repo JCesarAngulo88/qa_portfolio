@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
   pull_request:
     branches:
       - main
@@ -11,7 +12,6 @@ on:
 jobs:
   pytest-cont-test:
     runs-on: ubuntu-latest
-    environment: API   # 👈 link job to API environment
 
     steps:
       - name: Checkout repository
@@ -20,24 +20,27 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Debug env vars
+      - name: Verify repository secrets
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: |
-          echo "USERNAME is set: ${{ secrets.API.USERNAME != '' }}"
-          echo "PASSWORD is set: ${{ secrets.API.PASSWORD != '' }}"
+          echo "USERNAME exists: $([ -n "$USERNAME" ] && echo true || echo false)"
+          echo "PASSWORD exists: $([ -n "$PASSWORD" ] && echo true || echo false)"
 
       - name: Run continuous tests
         env:
           FLASK_SECRET_KEY: ci-secret-key
-          USERNAME: ${{ secrets.API.USERNAME }}
-          PASSWORD: ${{ secrets.API.PASSWORD }}
           BASE_URL: http://127.0.0.1:5000
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: |
           chmod +x run_continuous_tests.sh
           ./run_continuous_tests.sh

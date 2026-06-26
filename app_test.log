@@ -1,30 +1,12 @@
-2026-06-23 21:32:05,773 - conftest - INFO - Logger has been configured.
-2026-06-23 21:32:05,773 - conftest - INFO - Setting API Client
-2026-06-23 21:32:05,774 - test_auth - INFO - Starting auth test: verify valid credentials return access and refresh tokens from /login.
-2026-06-23 21:32:05,777 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:5000
-2026-06-23 21:32:05,863 - urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "POST /login HTTP/1.1" 200 220
-2026-06-23 21:32:05,863 - test_auth - INFO - Login response status: 200
-2026-06-23 21:32:05,863 - test_auth - INFO - Login response body: {'access_token': 'eyJ1c2VybmFtZSI6ImFkbWluIn0.ajtPtQ.pm3GFDdAH_SBnlw5yzvCT0XN16s', 'expires_in': 3600, 'refresh_token': 'eyJ1c2VybmFtZSI6ImFkbWluIn0.ajtPtQ.4sEVRvcoK3jcizGmA_Eo6xvw16U', 'token_type': 'Bearer'}
-2026-06-23 21:32:05,864 - test_auth - INFO - Assertion passed: login returns 200.
-2026-06-23 21:32:05,864 - test_auth - INFO - Assertion passed: token_type is Bearer.
-2026-06-23 21:32:05,864 - test_auth - INFO - Assertion passed: expires_in is positive.
-2026-06-23 21:32:05,864 - test_auth - INFO - Assertion passed: access_token is a string.
-2026-06-23 21:32:05,864 - test_auth - INFO - Assertion passed: refresh_token is a string.
-2026-06-23 21:32:05,864 - test_auth - INFO - Starting auth failure test: verify invalid credentials return 401 for username=admin.
-2026-06-23 21:32:05,865 - urllib3.connectionpool - DEBUG - Resetting dropped connection: 127.0.0.1
-2026-06-23 21:32:05,922 - urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "POST /login HTTP/1.1" 401 38
-2026-06-23 21:32:05,922 - test_auth - INFO - Login failure response status: 401, body: {'error': 'Invalid credentials.'}
-2026-06-23 21:32:05,922 - test_auth - INFO - Assertion passed: login returns 401.
-2026-06-23 21:32:05,922 - test_auth - INFO - Assertion passed: error message is 'Invalid credentials.'.
-2026-06-23 21:32:05,923 - test_auth - INFO - Starting auth failure test: verify invalid credentials return 401 for username=wrong-user.
-2026-06-23 21:32:05,924 - urllib3.connectionpool - DEBUG - Resetting dropped connection: 127.0.0.1
-2026-06-23 21:32:05,925 - urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "POST /login HTTP/1.1" 401 38
-2026-06-23 21:32:05,925 - test_auth - INFO - Login failure response status: 401, body: {'error': 'Invalid credentials.'}
-2026-06-23 21:32:05,925 - test_auth - INFO - Assertion passed: login returns 401.
-2026-06-23 21:32:05,925 - test_auth - INFO - Assertion passed: error message is 'Invalid credentials.'.
-2026-06-23 21:32:05,926 - test_auth - INFO - Starting auth failure test: verify invalid credentials return 401 for username=.
-2026-06-23 21:32:05,926 - urllib3.connectionpool - DEBUG - Resetting dropped connection: 127.0.0.1
-2026-06-23 21:32:05,927 - urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "POST /login HTTP/1.1" 401 38
-2026-06-23 21:32:05,927 - test_auth - INFO - Login failure response status: 401, body: {'error': 'Invalid credentials.'}
-2026-06-23 21:32:05,927 - test_auth - INFO - Assertion passed: login returns 401.
-2026-06-23 21:32:05,927 - test_auth - INFO - Assertion passed: error message is 'Invalid credentials.'.
+2026-06-25 20:29:40,652 - conftest - INFO - Logger has been configured.
+2026-06-25 20:29:40,652 - conftest - INFO - Setting API Client
+2026-06-25 20:29:40,652 - test_auth - INFO - Starting auth test: verify valid credentials return access and refresh tokens from /login.
+2026-06-25 20:29:40,656 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:5000
+2026-06-25 20:29:40,742 - urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "POST /login HTTP/1.1" 200 203
+2026-06-25 20:29:40,742 - test_auth - INFO - Login response status: 200
+2026-06-25 20:29:40,742 - test_auth - INFO - Login response body: {'access_token': 'eyJ1c2VybmFtZSI6ImFkbWluIn0.aj3kFA.Jyz1yfurwiOa8aor9k9mvD4v0IM', 'expires_in': 3600, 'refresh_token': 'eyJ1c2VybmFtZSI6ImFkbWluIn0.aj3kFA.DC4ms0t27tgAwmkA3f3FB3wse0U', 'token_type': 'Bearer'}
+2026-06-25 20:29:40,742 - test_auth - INFO - Assertion passed: login returns 200.
+2026-06-25 20:29:40,742 - test_auth - INFO - Assertion passed: token_type is Bearer.
+2026-06-25 20:29:40,742 - test_auth - INFO - Assertion passed: expires_in is positive.
+2026-06-25 20:29:40,742 - test_auth - INFO - Assertion passed: access_token is a string.
+2026-06-25 20:29:40,742 - test_auth - INFO - Assertion passed: refresh_token is a string.

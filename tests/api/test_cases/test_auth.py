@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 class TestAuthEndpoints:
 
-    @pytest.mark.debug
+    @pytest.mark.macaco
     @pytest.mark.cont_test
     def test_login_with_valid_credentials_returns_tokens(self, api_client):
         logger.info(

@@ -20,9 +20,9 @@ if not app.secret_key:
 app.config["DATABASE"] = os.path.join(app.instance_path, "portfolio.db")
 app.config["API_TOKEN_EXPIRATION"] = int(os.environ.get("API_TOKEN_EXPIRATION", "3600"))
 app.config["API_REFRESH_TOKEN_EXPIRATION"] = int(os.environ.get("API_REFRESH_TOKEN_EXPIRATION", "86400"))
-app.config["API_USERNAME"] = os.environ.get("API_USERNAME", "admin")
+app.config["API_USERNAME"] = os.environ.get("USERNAME", "admin")
 app.config["API_PASSWORD_HASH"] = os.environ.get("API_PASSWORD_HASH")
-app.config["API_PASSWORD"] = os.environ.get("API_PASSWORD", "password")
+app.config["API_PASSWORD"] = os.environ.get("PASSWORD", "password")
 app.config["API_ACCESS_TOKEN_SALT"] = "portfolio-api-access"
 app.config["API_REFRESH_TOKEN_SALT"] = "portfolio-api-refresh"
 Path(app.instance_path).mkdir(parents=True, exist_ok=True)
@@ -235,4 +235,8 @@ def contact() -> str:
     return render_template("contact.html", contact_info=contact_info)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(
+        host="127.0.0.1",
+        port=5000,
+        debug=os.getenv("FLASK_DEBUG", "false").lower() == "true",
+    )
